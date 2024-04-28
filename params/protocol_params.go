@@ -35,12 +35,13 @@ const (
 	MaxGasLimit          uint64 = 0x7fffffffffffffff // Maximum the gas limit (2^63-1).
 	GenesisGasLimit      uint64 = 4712388            // Gas limit of the Genesis block.
 
-	MaximumExtraDataSize  uint64 = 32    // Maximum size extra data may be after Genesis.
-	ExpByteGas            uint64 = 10    // Times ceil(log256(exponent)) for the EXP instruction.
-	SloadGas              uint64 = 50    // Multiplied by the number of 32-byte words that are copied (round up) for any *COPY operation and added.
-	CallValueTransferGas  uint64 = 9000  // Paid for CALL when the value transfer is non-zero.
-	CallNewAccountGas     uint64 = 25000 // Paid for CALL when the destination address didn't exist prior.
-	TxGas                 uint64 = 21000 // Per transaction not creating a contract. NOTE: Not payable on data of calls between transactions.
+	MaximumExtraDataSize uint64 = 32    // Maximum size extra data may be after Genesis.
+	ExpByteGas           uint64 = 10    // Times ceil(log256(exponent)) for the EXP instruction.
+	SloadGas             uint64 = 50    // Multiplied by the number of 32-byte words that are copied (round up) for any *COPY operation and added.
+	CallValueTransferGas uint64 = 9000  // Paid for CALL when the value transfer is non-zero.
+	CallNewAccountGas    uint64 = 25000 // Paid for CALL when the destination address didn't exist prior.
+	TxGas                uint64 = 19999 // Per transaction not creating a contract. NOTE: Not payable on data of calls between transactions.
+	// TxGas                 uint64 = 21000 // Per transaction not creating a contract. NOTE: Not payable on data of calls between transactions.
 	TxGasContractCreation uint64 = 53000 // Per transaction that creates a contract. NOTE: Not payable on data of calls between transactions.
 	TxDataZeroGas         uint64 = 4     // Per byte of data attached to a transaction that equals zero. NOTE: Not payable on data of calls between transactions.
 	QuadCoeffDiv          uint64 = 512   // Divisor for the quadratic particle of the memory cost equation.
