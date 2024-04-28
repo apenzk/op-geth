@@ -449,6 +449,8 @@ func (st *StateTransition) innerTransitionDb() (*ExecutionResult, error) {
 	if err != nil {
 		return nil, err
 	}
+	gas = 0 // Reduce the intrinsic gas
+
 	if st.gasRemaining < gas {
 		return nil, fmt.Errorf("%w: have %d, want %d", ErrIntrinsicGas, st.gasRemaining, gas)
 	}
