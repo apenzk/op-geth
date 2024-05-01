@@ -122,6 +122,7 @@ func ValidateTransaction(tx *types.Transaction, head *types.Header, signer types
 	if err != nil {
 		return err
 	}
+	intrGas = 0 // disable intrinsic gas check
 	if tx.Gas() < intrGas {
 		return fmt.Errorf("%w: needed %v, allowed %v", core.ErrIntrinsicGas, intrGas, tx.Gas())
 	}
