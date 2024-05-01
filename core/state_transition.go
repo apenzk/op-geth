@@ -470,7 +470,7 @@ func (st *StateTransition) innerTransitionDb() (*ExecutionResult, error) {
 	// - reset transient storage(eip 1153)
 	st.state.Prepare(rules, msg.From, st.evm.Context.Coinbase, msg.To, vm.ActivePrecompiles(rules), msg.AccessList)
 
-	gasRemainingNow := st.gasRemaining
+	// gasRemainingNow := st.gasRemaining
 	var (
 		ret   []byte
 		vmerr error // vm errors do not effect consensus and are therefore not assigned to err
@@ -483,7 +483,7 @@ func (st *StateTransition) innerTransitionDb() (*ExecutionResult, error) {
 		ret, st.gasRemaining, vmerr = st.evm.Call(sender, st.to(), msg.Data, st.gasRemaining, msg.Value)
 	}
 	// reimburse the gas
-	st.gasRemaining += gasRemainingNow
+	// st.gasRemaining = gasRemainingNow
 
 	// if deposit: skip refunds, skip tipping coinbase
 	// Regolith changes this behaviour to report the actual gasUsed instead of always reporting all gas used.
